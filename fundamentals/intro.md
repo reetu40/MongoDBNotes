@@ -12,3 +12,16 @@ Mongo Shell -you can run commands like show dbs will shows dbs in the shell
 
 Bigger Picture
 ![alt text](image.png)
+
+
+**********************************************************************
+CRUD(CREATE/UPDATE/UPDATE/DELETE)
+
+DATABASE HAS MULTIPLE COLLECTIONS and which has different documents 
+![alt text](image-1.png)
+db.version()
+show dbs
+db.comments.find({"name":"John Bishop"}).count();
+****************************
+JSON vs BSON(Binary JSON)
+JSON is converted into BSON by the drivers so that its efficient storage
