@@ -43,3 +43,5 @@ db.comments.updateOne({name:"Selyse Baratheon"},{$set:{marker:"delete"}})
 }
 you are adding a field here marker:"delete" 
 db.movies.findOne({year:{$gte:1970}})
+pretty is supported on find and not on FindOne
+db.movies.find({year:{$gte:1970}}).pretty()
