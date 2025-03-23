@@ -45,3 +45,31 @@ you are adding a field here marker:"delete"
 db.movies.findOne({year:{$gte:1970}})
 pretty is supported on find and not on FindOne
 db.movies.find({year:{$gte:1970}}).pretty()
+Explain embedding vs. referencing in MongoDB.
+
+Embedding: nested documents within a single document
+Referencing: storing related data in separate documents with references (similar to foreign keys)
+
+
+```When would you choose embedding over referencing?```
+
+One-to-few relationships
+Data that is queried together
+Data that doesn't change frequently
+```What are MongoDB operators? Give examples of commonly used ones.```
+
+$eq, $gt, $lt (comparison)
+$and, $or, $not (logical)
+$set, $inc, $push (update)
+$match, $group, $project (aggregation)
+```How do you monitor query performance in MongoDB?```
+
+Using explain() method to analyze query execution
+Profiler to capture slow queries
+MongoDB Compass or monitoring tools
+
+
+What is sharding and when would you use it?
+
+Horizontal scaling strategy distributing data across multiple servers
+Used for very large datasets and high throughput applications
