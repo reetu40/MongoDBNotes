@@ -23,14 +23,18 @@ db.version()
 show dbs
 db.comments.find({"name":"John Bishop"}).count();
 ****************************
-JSON vs BSON(Binary JSON)
+```
+JSON vs BSON(Binary JSON)```
+
 JSON is converted into BSON by the drivers so that its efficient storage
 Create-insertone(data,options),insertmany(data,options)
 Read-find(filter,options),findOne(filter,options)
 Update-updateOne(filter,data,options) UpdateMany(filter,data,options) replaceOne(filter,data,options)
 Delete -DeleteOne(filter,options) deleteMany(filter,options)
 
-$ sign is a reserved key work in MongoDb
+```
+$ sign is a reserved key work in MongoDb```
+
 db.comments.updateOne({name:"Selyse Baratheon"},{$set:{marker:"delete"}})
 {
   _id: ObjectId('5a9427648b0beebeb6959421'),
