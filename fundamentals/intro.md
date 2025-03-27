@@ -56,6 +56,12 @@ db.movies.find({year:{$gte:1970}}).pretty()
 * update replaces the entire mongo object just keeping the id same if we do not use $set but its deprecated now use replaceOne
 ![alt text](image-3.png)
 
+
+
+```FIND command does not returns all objects but a cursor```
+which makes lot of sense as your collection can have million rows we cannot return all of them in one go but some list
+![alt text](image-4.png)
+
 ```Explain embedding vs. referencing in MongoDB.```
 
 Embedding: nested documents within a single document
