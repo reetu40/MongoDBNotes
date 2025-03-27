@@ -62,6 +62,19 @@ db.movies.find({year:{$gte:1970}}).pretty()
 which makes lot of sense as your collection can have million rows we cannot return all of them in one go but some list
 ![alt text](image-4.png)
 
+```To iterate and transform the list in the driver code we can do we can find exact syntax in driver docs```
+db.collection("comments").find().foreach((comment)=>{printjson(comment)})
+![alt text](image-5.png)
+
+* REMEMBER - foreach does not loads everything in memory but does it on-demand 
+
+
+```Projection```
+* Filtering data at mongo db level and not sending it over the wire database must have mutiple columns but the app may not need all the columns so its wise to filter columns at the db level
+![alt text](image-6.png)
+![alt text](image-7.png)
+
+
 ```Explain embedding vs. referencing in MongoDB.```
 
 Embedding: nested documents within a single document
