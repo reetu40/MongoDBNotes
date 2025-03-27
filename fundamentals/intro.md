@@ -35,7 +35,7 @@ Delete -DeleteOne(filter,options) deleteMany(filter,options)
 ```
 $ sign is a reserved key work in MongoDb```
 
-db.comments.updateOne({name:"Selyse Baratheon"},{$set:{marker:"delete"}})
+* db.comments.updateOne({name:"Selyse Baratheon"},{$set:{marker:"delete"}})
 {
   _id: ObjectId('5a9427648b0beebeb6959421'),
   name: 'Selyse Baratheon',
@@ -45,12 +45,17 @@ db.comments.updateOne({name:"Selyse Baratheon"},{$set:{marker:"delete"}})
   date: 1985-05-12T10:40:58.000Z,
   marker: 'delete'
 }
-you are adding a field here marker:"delete" 
+* you are adding a field here marker:"delete" 
 db.movies.findOne({year:{$gte:1970}})
-pretty is supported on find and not on FindOne
+* pretty is supported on find and not on FindOne
 db.movies.find({year:{$gte:1970}}).pretty()
 
 ![alt text](image-2.png)
+
+```Diff b/w update and updateMany```
+* update replaces the entire mongo object just keeping the id same if we do not use $set but its deprecated now use replaceOne
+![alt text](image-3.png)
+
 ```Explain embedding vs. referencing in MongoDB.```
 
 Embedding: nested documents within a single document
