@@ -49,6 +49,8 @@ you are adding a field here marker:"delete"
 db.movies.findOne({year:{$gte:1970}})
 pretty is supported on find and not on FindOne
 db.movies.find({year:{$gte:1970}}).pretty()
+
+![alt text](image-2.png)
 ```Explain embedding vs. referencing in MongoDB.```
 
 Embedding: nested documents within a single document
@@ -62,8 +64,8 @@ Data that is queried together
 Data that doesn't change frequently
 ```What are MongoDB operators? Give examples of commonly used ones.```
 
-$eq, $gt, $lt (comparison)
-$and, $or, $not (logical)
+* $eq, $gt, $lt (comparison)
+@ $and, $or, $not (logical)
 $set, $inc, $push (update)
 $match, $group, $project (aggregation)
 ```How do you monitor query performance in MongoDB?```
@@ -77,9 +79,11 @@ MongoDB Compass or monitoring tools
 
 Horizontal scaling strategy distributing data across multiple servers
 Used for very large datasets and high throughput applications
+
 ```How would you optimize a slow-performing MongoDB query?```
 
-Create appropriate indexes
-Use projection to return only needed fields
-Restructure the query or data model if necessary
-Use explain() to analyze execution plan
+* Create appropriate indexes
+* Use projection to return only needed fields
+* Restructure the query or data model if necessary
+* Use explain() to analyze execution plan
+
