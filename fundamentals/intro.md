@@ -75,6 +75,25 @@ db.collection("comments").find().foreach((comment)=>{printjson(comment)})
 ![alt text](image-7.png)
 
 
+```Drop Db and Collection```
+To get rid of your data, you can simply load the database you want to get rid of (use databaseName) and then execute db.dropDatabase().
+
+Similarly, you could get rid of a single collection in a database via db.myCollection.drop().
+
+```Data Types in Mongo```
+db.companies.insertOne({name:'ABC12', address:'MA', createdOn:new Date(), isStartUp:true, id:new Timestamp(),tags:[{flag:'happyemp'},{flag:'goodCompany'}]})
+
+MongoDB has a couple of hard limits - most importantly, a single document in a collection (including all embedded documents it might have) must be <= 16mb. Additionally, you may only have 100 levels of embedded documents.
+NumberInt creates a int32 value => NumberInt(55)
+
+NumberLong creates a int64 value => NumberLong(7489729384792)
+
+If you just use a number (e.g. insertOne({a: 1}), this will get added as a normal double into the database. The reason for this is that the shell is based on JS which only knows float/ double values and doesn't differ between integers and floats.
+
+
+db.stats()-->give the size of db 
+if there is strong one to one relationship we should go for embedded or nested documents
+
 ```Explain embedding vs. referencing in MongoDB.```
 
 Embedding: nested documents within a single document
@@ -84,8 +103,32 @@ Referencing: storing related data in separate documents with references (similar
 ```When would you choose embedding over referencing?```
 
 One-to-few relationships
+one to many embedding is when its a scenerio of question ans
+one to many refrencing usecase is citizens and cities
 Data that is queried together
 Data that doesn't change frequently
+
+
+Many to Many
+Products<-->Customers
+add references
+db.person.updateMany(
+  { name: "reetu" }, 
+  { $set: { city: [ObjectId('67e7f8c64cdaad6073e223ef'), ObjectId('67e7f8c64cdaad6073e223f0')] } }
+)
+```Aggregate LookUp```
+this is when we have different documents with refrences but want to lookup in one go
+
+db.person.aggregate([
+  {
+    $lookup: {
+      from: "city",
+      localField: "city",
+      foreignField: "_id",
+      as: "cityDetails"
+    }
+  }
+])
 ```What are MongoDB operators? Give examples of commonly used ones.```
 
 * $eq, $gt, $lt (comparison)
