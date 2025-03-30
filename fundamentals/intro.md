@@ -91,6 +91,7 @@ NumberLong creates a int64 value => NumberLong(7489729384792)
 If you just use a number (e.g. insertOne({a: 1}), this will get added as a normal double into the database. The reason for this is that the shell is based on JS which only knows float/ double values and doesn't differ between integers and floats.
 
 
+
 db.stats()-->give the size of db 
 if there is strong one to one relationship we should go for embedded or nested documents
 
@@ -154,3 +155,22 @@ Used for very large datasets and high throughput applications
 * Restructure the query or data model if necessary
 * Use explain() to analyze execution plan
 
+```Validating Schema in Mongo Db```
+db.createCollection("postwithvalid", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ['postName', 'type'],
+      properties: {
+        postName: {
+          bsonType: "string",
+          description: "must be a string and is required"
+        },
+        type: {
+          bsonType: "string",
+          description: "must be a string and is required"
+        }
+      }
+    }
+  }
+})
