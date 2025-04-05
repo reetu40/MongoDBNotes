@@ -174,3 +174,48 @@ db.createCollection("postwithvalid", {
     }
   }
 })
+# MongoDB Operators Overview
+
+## Types of Operators
+
+### Query Operators
+- Allow us to narrow down the set of documents retrieved
+- Example: `$gt` (greater than)
+- Used for locating data
+- Do not change data in the database
+- Other examples: `$eq` (equals)
+
+### Projection Operators
+- Allow us to transform or change the data we get back
+- Only modify the presentation of data, not the data in the database
+- Example: `$` operator
+- Control the appearance of returned data
+
+### Update Operators
+- Used for updating fields and arrays in documents
+- Will be covered in the Update module
+- Do change data in the database
+- Example: `$inc` - increments a field by specified amount
+
+
+
+### Aggregation
+- More complex transforms for reading data
+- Sets up a pipeline of stages to funnel data through
+- Provides operators to shape returned data
+- Will be covered in a separate Aggregation module
+
+## Module Focus
+- Current module: Read operators (Query and Projection)
+- Update module: Update operators
+- No special operators for inserts
+- Delete uses the same operators as read (to find data to delete)
+
+## Summary by Function
+
+| Operator Type | Purpose | Changes Database | Examples | Coverage |
+|---------------|---------|------------------|----------|----------|
+| Query | Locate data | No | `$eq`, `$gt` | Current module |
+| Projection | Modify data presentation | No | `$` | Current module |
+| Update | Modify/add data | Yes | `$inc` | Update module |
+| Aggregation | Complex data transforms | No | Various | Aggregation module |
